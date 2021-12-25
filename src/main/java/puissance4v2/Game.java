@@ -10,7 +10,7 @@ public class Game {
 		// 1st phase player creation if player = true then player 1 turn else player 2
 		// turn
 		//Test modif Git
-		System.out.println("GitVersion check");
+		System.out.println("GitVersion check v2");
 		
 		boolean win = false;
 		boolean player = true;
