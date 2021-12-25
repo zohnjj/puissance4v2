@@ -9,6 +9,7 @@ public class Game {
 		// Init of the game
 		// 1st phase player creation if player = true then player 1 turn else player 2
 		// turn
+		//Test modif
 		boolean win = false;
 		boolean player = true;
 		Player player1 = new Player("Player1", "R");
