@@ -11,7 +11,7 @@ public class Slider {
 	}
 
 	//Init the slider by fill it with "."
-	public static void init(String[][] game) {
+	public void init(String[][] game) {
 		for (int row = 0; row < game.length; row++) {
 			for (int col = 0; col < game[row].length; col++) {
 				game[row][col] = ".";
@@ -22,7 +22,7 @@ public class Slider {
 	}
 
 	// Display a String String[][]
-	public static void display(String[][] game) {
+	public void display(String[][] game) {
 		for (int row = 0; row < game.length; row++) {
 			for (int col = 0; col < game[row].length; col++) {
 				System.out.print(game[row][col] + " ");

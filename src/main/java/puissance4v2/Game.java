@@ -78,7 +78,8 @@ public class Game {
 			switch (coordinatesV.get(1)) {
 			case 0:
 				printTurn(slider, gameArea);
-				System.out.println("Vous ne pouvez pas aller plus à gauche");
+				System.out.println("=====================================");
+				System.out.println("You can't move Left anymore");
 				break;
 			default:
 				slider.sliderCursor[coordinatesV.get(0)][coordinatesV.get(1)] = ".";
@@ -92,7 +93,8 @@ public class Game {
 			switch (coordinatesV.get(1)) {
 			case 6:
 				printTurn(slider, gameArea);
-				System.out.println("Vous ne pouvez pas aller plus à droite");
+				System.out.println("=====================================");
+				System.out.println("You can't move Right anymore");
 				break;
 			default:
 				slider.sliderCursor[coordinatesV.get(0)][coordinatesV.get(1)] = ".";
@@ -104,6 +106,10 @@ public class Game {
 		case "s":
 			coordinatesV = slider.searchPos(slider.sliderCursor, "V");
 			coordinatesToken = gameArea.searchEmptyCol(gameArea.game, coordinatesV.get(1));
+			if (coordinatesToken.isEmpty() == true) {
+				printTurn(slider, gameArea);
+				break;
+			}
 			gameArea.game[coordinatesToken.get(0)][coordinatesToken.get(1)] = player.color;
 			printTurn(slider, gameArea);
 			break;
@@ -190,9 +196,9 @@ public class Game {
 		for (int i = -1, j = 0; i <= listCoordonatesDiagR.size() / 2 && j < listCoordonatesDiagR.size() / 2; i++, j++) {
 			int abs = 2 * (i + 1);
 			int ord = 2 * j + 1;
-			int valAbs = listCoordonatesDiagR.get(abs);
-			int valOrd = listCoordonatesDiagR.get(ord);
-			String valCase = game[listCoordonatesDiagR.get(abs)][listCoordonatesDiagR.get(ord)];
+			//int valAbs = listCoordonatesDiagR.get(abs);
+			//int valOrd = listCoordonatesDiagR.get(ord);
+			//String valCase = game[listCoordonatesDiagR.get(abs)][listCoordonatesDiagR.get(ord)];
 			if (game[listCoordonatesDiagR.get(abs)][listCoordonatesDiagR.get(ord)] == player.color) {
 				count += 1;
 				win = countWin(count);
@@ -210,9 +216,9 @@ public class Game {
 		for (int i = -1, j = 0; i <= listCoordonatesDiagR.size() / 2 && j < listCoordonatesDiagR.size() / 2; i++, j++) {
 			int abs = 2 * (i + 1);
 			int ord = 2 * j + 1;
-			int valAbs = listCoordonatesDiagR.get(abs);
-			int valOrd = listCoordonatesDiagR.get(ord);
-			String valCase = game[listCoordonatesDiagR.get(abs)][listCoordonatesDiagR.get(ord)];
+			//int valAbs = listCoordonatesDiagR.get(abs);
+			//int valOrd = listCoordonatesDiagR.get(ord);
+			//String valCase = game[listCoordonatesDiagR.get(abs)][listCoordonatesDiagR.get(ord)];
 			if (game[listCoordonatesDiagR.get(abs)][listCoordonatesDiagR.get(ord)] == player.color) {
 				count += 1;
 				win = countWin(count);
@@ -225,7 +231,7 @@ public class Game {
 
 	public static void startGame(Slider slider, GameArea gameArea) {
 		System.out.println("=====================================");
-		System.out.println("Si vous êtes prêts à jouer taper 's'");
+		System.out.println("If you are ready to play, press 's'");
 		Scanner sc = new Scanner(System.in);
 		String input = sc.next();
 		switch (input) {
@@ -234,9 +240,9 @@ public class Game {
 			System.out.println("Welcome Player 1, you will play the Red 'R' one.");
 			System.out.println(
 					"Please notice the 'V' on the slider. It designates the colunm where you will place your Red token.");
-			System.out.println("To Move Left, please type 'q'");
-			System.out.println("To Move Right, please type 'd'");
-			System.out.println("To Move Put your token on the designated colum, please type 's'");
+			System.out.println("To Move Left, please press 'q'");
+			System.out.println("To Move Right, please press 'd'");
+			System.out.println("To Move Put your token on the designated colum, please press 's'");
 			slider.sliderCursor[0][3] = "V";
 			slider.display(slider.sliderCursor);
 			slider.display(gameArea.game);
@@ -244,16 +250,15 @@ public class Game {
 		default:
 			startGame(slider, gameArea);
 		}
-
 	}
 
 	public static void printTurn(Slider slider, GameArea gameArea) {
 		System.out.println("=====================================");
 		System.out.println(
 				"Please notice the 'V' on the slider. It designates the colunm where you will place your token.");
-		System.out.println("To Move Left, please type 'q'");
-		System.out.println("To Move Right, please type 'd'");
-		System.out.println("To Move Put your token on the designated colum, please type 's'");
+		System.out.println("To Move Left, please press 'q'");
+		System.out.println("To Move Right, please press 'd'");
+		System.out.println("To Move Put your token on the designated colum, please press 's'");
 		slider.display(slider.sliderCursor);
 		slider.display(gameArea.game);
 	}

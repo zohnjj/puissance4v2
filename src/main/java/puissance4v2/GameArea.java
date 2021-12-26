@@ -11,7 +11,7 @@ public class GameArea {
 	}
 	
 	// Init String[][] by
-	public static void init(String[][] gameArea) {
+	public void init(String[][] gameArea) {
 		for (int row = 0; row < gameArea.length; row++) {
 			for (int col = 0; col < gameArea[row].length; col++) {
 				gameArea[row][col] = "0";
@@ -22,7 +22,7 @@ public class GameArea {
 	}
 
 	// Display a String[][]
-	public static void display(String[][] gameArea) {
+	public void display(String[][] gameArea) {
 		for (int row = 0; row < gameArea.length; row++) {
 			for (int col = 0; col < gameArea[row].length; col++) {
 				System.out.print(gameArea[row][col] + " ");
@@ -40,23 +40,28 @@ public class GameArea {
 		if (game[game.length - 1][col] == "0") {
 			coordinates.add(game.length - 1);
 			coordinates.add(col);
-		} else {
+		}
+		else {
 			// Je cherche dans la colonne le premier element non vide
 			for (int row = 0; row < game.length; row++) {
 				if (game[row][col] != "0") {
+					//Check if it is on the last row 
+					if (row == 0) {
+						System.out.println("=====================================");
+						System.out.println("You can't play that, you already fill up the column. Please, left or right");
+						coordinates.clear();
+						break;
+					}
+					else {
 					coordinates.add(row - 1);
 					coordinates.add(col);
 					break;
+					}
 				}
 			}
 		}
-		if (coordinates.get(0) < 0) {
-			System.out.println("Vous ne pouvez pas jouer ceci");
-			coordinates.clear();
 			return (coordinates);
-		} else {
-			return (coordinates);
-		}
+		
 	}
 
 	// Given a position (x,y) in a 2D String, all the coordinates of the right

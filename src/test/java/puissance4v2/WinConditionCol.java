@@ -32,7 +32,6 @@ class WinConditionCol {
 		for (int i = 0; i < dataInput.getDataList().size(); i++) {
 			boolean a = game.winConditionCol(dataInput.getData(i), inputTemp, player);
 			System.out.println("=======");
-			GameArea.display(dataInput.getData(i));
 			listOuput.add(a);
 		}
 		// Assert
