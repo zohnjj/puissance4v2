@@ -242,7 +242,7 @@ public class Game {
 					"Please notice the 'V' on the slider. It designates the colunm where you will place your Red token.");
 			System.out.println("To Move Left, please press 'q'");
 			System.out.println("To Move Right, please press 'd'");
-			System.out.println("To Move Put your token on the designated colum, please press 's'");
+			System.out.println("To Put your token on the designated colum, please press 's'");
 			slider.sliderCursor[0][3] = "V";
 			slider.display(slider.sliderCursor);
 			slider.display(gameArea.game);
